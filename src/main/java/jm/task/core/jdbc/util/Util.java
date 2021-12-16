@@ -13,7 +13,7 @@ public class Util {
 //            "&maxReconnects=10"
             ;
 
-    public Connection connect() {
+    public static Connection connect() {
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             conn.setAutoCommit(false);

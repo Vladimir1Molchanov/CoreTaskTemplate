@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
-    private Util util = new Util();
-    private Connection conn = util.connect();
+    private Connection conn = Util.connect();
 
     public UserDaoJDBCImpl() {
 
