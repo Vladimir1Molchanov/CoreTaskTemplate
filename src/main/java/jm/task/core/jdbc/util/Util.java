@@ -1,24 +1,27 @@
 package jm.task.core.jdbc.util;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
 import java.sql.*;
 
 public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
-    private static final String URL = "jdbc:mysql://localhost:3306/users" +
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/users" +
             "?useSSL=false" +
-            "&serverTimezone=UTC";
+            "&serverTimezone=UTC"
+//            "&autoReconnect=true" +
+//            "&failOverReadOnly=false" +
+//            "&maxReconnects=10"
+            ;
 
     public Connection connect() {
         try {
-            return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            conn.setAutoCommit(false);
+            return conn;
 
         } catch (SQLException e) {
-            System.out.println("U-u-ups, something go wrong, check ->");
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

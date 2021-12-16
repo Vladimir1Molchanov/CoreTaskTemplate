@@ -16,6 +16,5 @@ public class Main {
         System.out.println(us.getAllUsers());
         us.cleanUsersTable();
         us.dropUsersTable();
-
     }
 }
