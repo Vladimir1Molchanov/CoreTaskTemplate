@@ -36,24 +36,16 @@ public class Util {
                         USERNAME)
                 .setProperty("hibernate.connection.password",
                         PASSWORD)
-//                .setProperty("hibernate.connection.pool_size", "1")
                 .setProperty("hibernate.connection.autocommit", "false")
                 .setProperty("hdm2ddl.auto","update")
-//                .setProperty("hibernate.cache.provider_class",
-//                        "org.hibernate.cache.NoCacheProvider")
-//                .setProperty("hibernate.cache.use_second_level_cache",
-//                        "false")
-//                .setProperty("hibernate.cache.use_query_cache", "false")
                 .setProperty("hibernate.dialect",
                         "org.hibernate.dialect.MySQLDialect")
                 .setProperty("hibernate.show_sql", "true")
                 .setProperty("spring.jpa.hibernate.naming.physical-strategy",
-                        "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"
-                )
-//                .setProperty("hibernate.current_session_context_class",
-//                        "thread")
+                        "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl")
                 .addPackage("ru.miralab.db")
                 .addAnnotatedClass(User.class);
+
         StandardServiceRegistryBuilder b = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
 
